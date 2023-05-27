@@ -1,0 +1,436 @@
+EESchema Schematic File Version 4
+LIBS:RC_Car-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MCU_Microchip_ATmega:ATmega328P-PU U1
+U 1 1 5E15B71E
+P 4550 3750
+F 0 "U1" H 3909 3796 50  0000 R CNN
+F 1 "ATmega328P-PU" H 3909 3705 50  0000 R CNN
+F 2 "Package_DIP:DIP-28_W7.62mm_Socket_LongPads" H 4550 3750 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf" H 4550 3750 50  0001 C CNN
+	1    4550 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6500 2850 5400 2850
+Wire Wire Line
+	5400 2850 5400 1800
+Wire Wire Line
+	5400 1800 4550 1800
+Wire Wire Line
+	6500 2750 5250 2750
+Wire Wire Line
+	4550 5400 4550 5250
+$Comp
+L pspice:CAP C1
+U 1 1 5E15BBA0
+P 5550 4450
+F 0 "C1" H 5728 4496 50  0000 L CNN
+F 1 "CAP" H 5728 4405 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D4.0mm_P1.50mm" H 5550 4450 50  0001 C CNN
+F 3 "~" H 5550 4450 50  0001 C CNN
+	1    5550 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Crystal Y1
+U 1 1 5E15BE5D
+P 5450 3200
+F 0 "Y1" V 5404 3331 50  0000 L CNN
+F 1 "Crystal" V 5495 3331 50  0000 L CNN
+F 2 "Crystal:Crystal_HC18-U_Vertical" H 5450 3200 50  0001 C CNN
+F 3 "~" H 5450 3200 50  0001 C CNN
+	1    5450 3200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5450 3350 5400 3350
+Wire Wire Line
+	5300 3350 5300 3250
+Wire Wire Line
+	5300 3250 5150 3250
+Wire Wire Line
+	5150 3150 5300 3150
+Wire Wire Line
+	5300 3150 5300 3050
+Wire Wire Line
+	5300 3050 5400 3050
+$Comp
+L Driver_Motor:L293D U2
+U 1 1 5E15C2BF
+P 7450 4400
+F 0 "U2" H 7450 5578 50  0000 C CNN
+F 1 "L293D" H 7450 5487 50  0000 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm_Socket_LongPads" H 7700 3650 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/l293.pdf" H 7150 5100 50  0001 C CNN
+	1    7450 4400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 5200 7350 5200
+Wire Wire Line
+	7350 5200 7450 5200
+Connection ~ 7350 5200
+Wire Wire Line
+	7550 5200 7650 5200
+Connection ~ 7550 5200
+Wire Wire Line
+	5250 5400 5550 5400
+Wire Wire Line
+	7450 5400 7450 5200
+Connection ~ 5250 5400
+Connection ~ 7450 5200
+Wire Wire Line
+	7450 5200 7550 5200
+$Comp
+L Connector:Conn_01x02_Female J4
+U 1 1 5E15CCEF
+P 8950 4250
+F 0 "J4" H 8977 4226 50  0000 L CNN
+F 1 "12V Supply" H 8977 4135 50  0000 L CNN
+F 2 "Connector_JST:JST_NV_B02P-NV_1x02_P5.00mm_Vertical" H 8950 4250 50  0001 C CNN
+F 3 "~" H 8950 4250 50  0001 C CNN
+	1    8950 4250
+	1    0    0    -1  
+$EndComp
+Text GLabel 8750 4250 1    50   Input ~ 0
++12V
+Text GLabel 8750 4350 3    50   Input ~ 0
+gnd
+Wire Wire Line
+	8750 4350 8300 4350
+Wire Wire Line
+	8300 4350 8300 5400
+Wire Wire Line
+	8300 5400 7450 5400
+Connection ~ 7450 5400
+Wire Wire Line
+	8300 3250 8300 4250
+Wire Wire Line
+	8300 4250 8750 4250
+Text GLabel 6400 2550 1    50   Input ~ 0
+RXD
+$Comp
+L Connector_Generic:Conn_01x06 BluetoothModule1
+U 1 1 5E15E3D6
+P 6700 2650
+F 0 "BluetoothModule1" H 6780 2642 50  0000 L CNN
+F 1 "Conn_01x06" H 6780 2551 50  0000 L CNN
+F 2 "Connector_JST:JST_EH_B06B-EH-A_1x06_P2.50mm_Vertical" H 6700 2650 50  0001 C CNN
+F 3 "~" H 6700 2650 50  0001 C CNN
+	1    6700 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6500 2550 6400 2550
+Text GLabel 6300 2650 1    50   Input ~ 0
+TXD
+Wire Wire Line
+	6500 2650 6300 2650
+Wire Wire Line
+	5150 4250 6300 4250
+Wire Wire Line
+	6300 4250 6300 2650
+Wire Wire Line
+	5150 4350 6400 4350
+Wire Wire Line
+	6400 4350 6400 2550
+Wire Wire Line
+	6650 4800 6950 4800
+Wire Wire Line
+	6950 3800 6950 3450
+Wire Wire Line
+	6950 3450 5150 3450
+Wire Wire Line
+	6950 4000 6900 4000
+Wire Wire Line
+	6900 4000 6900 3550
+Wire Wire Line
+	6900 3550 5150 3550
+Wire Wire Line
+	6950 4400 6800 4400
+Wire Wire Line
+	6800 4400 6800 3650
+Wire Wire Line
+	6800 3650 5150 3650
+Wire Wire Line
+	5150 3750 6700 3750
+Wire Wire Line
+	6700 3750 6700 4600
+Wire Wire Line
+	6700 4600 6950 4600
+$Comp
+L Connector:Conn_01x02_Female Motor2
+U 1 1 5E16635E
+P 8250 3850
+F 0 "Motor2" H 8277 3826 50  0000 L CNN
+F 1 "Conn_01x02_Female" H 8277 3735 50  0000 L CNN
+F 2 "Connector_JST:JST_NV_B02P-NV_1x02_P5.00mm_Vertical" H 8250 3850 50  0001 C CNN
+F 3 "~" H 8250 3850 50  0001 C CNN
+	1    8250 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8050 4450 8050 4400
+Wire Wire Line
+	8050 4400 8000 4400
+Wire Wire Line
+	8050 4550 8050 4600
+Wire Wire Line
+	8050 4600 7950 4600
+Wire Wire Line
+	8050 3850 8050 3800
+Wire Wire Line
+	8050 3800 7950 3800
+Wire Wire Line
+	8050 3950 8050 4000
+Wire Wire Line
+	8050 4000 8000 4000
+Wire Wire Line
+	4550 1800 4550 2250
+Wire Wire Line
+	8300 3250 7550 3250
+Wire Wire Line
+	7550 3250 7550 3400
+Wire Wire Line
+	7550 3250 7350 3250
+Wire Wire Line
+	7350 3250 7350 3400
+Connection ~ 7550 3250
+Wire Wire Line
+	6950 4200 6650 4200
+Wire Wire Line
+	6650 4200 6650 4550
+Wire Wire Line
+	5150 2650 6100 2650
+Wire Wire Line
+	6100 2650 6100 4550
+Wire Wire Line
+	6100 4550 6650 4550
+Connection ~ 6650 4550
+Wire Wire Line
+	6650 4550 6650 4800
+$Comp
+L Connector:Conn_01x02_Female Motor1
+U 1 1 5E173633
+P 8250 3550
+F 0 "Motor1" H 8277 3526 50  0000 L CNN
+F 1 "Conn_01x02_Female" H 8277 3435 50  0000 L CNN
+F 2 "Connector_JST:JST_NV_B02P-NV_1x02_P5.00mm_Vertical" H 8250 3550 50  0001 C CNN
+F 3 "~" H 8250 3550 50  0001 C CNN
+	1    8250 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8050 4750 8000 4750
+Wire Wire Line
+	8000 4750 8000 4400
+Connection ~ 8000 4400
+Wire Wire Line
+	8000 4400 7950 4400
+Wire Wire Line
+	8050 4850 7950 4850
+Wire Wire Line
+	7950 4850 7950 4600
+Connection ~ 7950 4600
+Wire Wire Line
+	8050 3650 8000 3650
+Wire Wire Line
+	8000 3650 8000 4000
+Connection ~ 8000 4000
+Wire Wire Line
+	8000 4000 7950 4000
+Wire Wire Line
+	8050 3550 7950 3550
+Wire Wire Line
+	7950 3550 7950 3800
+Connection ~ 7950 3800
+Wire Wire Line
+	5250 2750 5250 3000
+Wire Wire Line
+	5150 4050 5550 4050
+Wire Wire Line
+	5550 4050 5550 4200
+Wire Wire Line
+	5550 4700 5550 5400
+Connection ~ 5550 5400
+$Comp
+L Regulator_Linear:LM7805_TO220 U3
+U 1 1 5E180115
+P 8250 2000
+F 0 "U3" H 8250 2242 50  0000 C CNN
+F 1 "LM7805_TO220" H 8250 2151 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 8250 2225 50  0001 C CIN
+F 3 "http://www.fairchildsemi.com/ds/LM/LM7805.pdf" H 8250 1950 50  0001 C CNN
+	1    8250 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:CAP C2
+U 1 1 5E1801C3
+P 7800 2250
+F 0 "C2" H 7978 2296 50  0000 L CNN
+F 1 "CAP" H 7978 2205 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D4.0mm_P1.50mm" H 7800 2250 50  0001 C CNN
+F 3 "~" H 7800 2250 50  0001 C CNN
+	1    7800 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:CAP C3
+U 1 1 5E18021F
+P 8700 2250
+F 0 "C3" H 8878 2296 50  0000 L CNN
+F 1 "CAP" H 8878 2205 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D4.0mm_P1.50mm" H 8700 2250 50  0001 C CNN
+F 3 "~" H 8700 2250 50  0001 C CNN
+	1    8700 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8550 2000 8700 2000
+Wire Wire Line
+	7800 2500 8250 2500
+Wire Wire Line
+	7800 2000 7950 2000
+Wire Wire Line
+	8250 2300 8250 2500
+Connection ~ 8250 2500
+Wire Wire Line
+	8250 2500 8700 2500
+Wire Wire Line
+	8700 2000 8700 1800
+Wire Wire Line
+	8700 1800 5400 1800
+Connection ~ 8700 2000
+Connection ~ 5400 1800
+Wire Wire Line
+	7800 2000 7300 2000
+Wire Wire Line
+	7300 2000 7300 3250
+Wire Wire Line
+	7300 3250 7350 3250
+Connection ~ 7800 2000
+Connection ~ 7350 3250
+Wire Wire Line
+	8250 2500 8250 3000
+Wire Wire Line
+	8250 3000 5250 3000
+Connection ~ 5250 3000
+Wire Wire Line
+	5250 3000 5250 3400
+Wire Wire Line
+	5550 5400 7450 5400
+$Comp
+L Device:R R1
+U 1 1 5E192397
+P 3000 2900
+F 0 "R1" H 3070 2946 50  0000 L CNN
+F 1 "R" H 3070 2855 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2930 2900 50  0001 C CNN
+F 3 "~" H 3000 2900 50  0001 C CNN
+	1    3000 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D1
+U 1 1 5E19243C
+P 3000 3200
+F 0 "D1" V 3038 3083 50  0000 R CNN
+F 1 "LED" V 2947 3083 50  0000 R CNN
+F 2 "LED_THT:LED_D3.0mm_IRGrey" H 3000 3200 50  0001 C CNN
+F 3 "~" H 3000 3200 50  0001 C CNN
+	1    3000 3200
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3000 2750 3000 1800
+Wire Wire Line
+	3000 1800 4550 1800
+Connection ~ 4550 1800
+Wire Wire Line
+	3000 3350 3000 5400
+Wire Wire Line
+	3000 5400 4550 5400
+Connection ~ 4550 5400
+Wire Wire Line
+	4550 5400 5250 5400
+$Comp
+L Connector:Conn_01x02_Female Motor3
+U 1 1 5E19704B
+P 8250 4450
+F 0 "Motor3" H 8277 4426 50  0000 L CNN
+F 1 "Conn_01x02_Female" H 8277 4335 50  0000 L CNN
+F 2 "Connector_JST:JST_NV_B02P-NV_1x02_P5.00mm_Vertical" H 8250 4450 50  0001 C CNN
+F 3 "~" H 8250 4450 50  0001 C CNN
+	1    8250 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Female Motor4
+U 1 1 5E19707D
+P 8250 4750
+F 0 "Motor4" H 8277 4726 50  0000 L CNN
+F 1 "Conn_01x02_Female" H 8277 4635 50  0000 L CNN
+F 2 "Connector_JST:JST_NV_B02P-NV_1x02_P5.00mm_Vertical" H 8250 4750 50  0001 C CNN
+F 3 "~" H 8250 4750 50  0001 C CNN
+	1    8250 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:CAP C4
+U 1 1 5E16511A
+P 5900 3150
+F 0 "C4" H 6078 3196 50  0000 L CNN
+F 1 "CAP" H 6078 3105 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D4.0mm_P1.50mm" H 5900 3150 50  0001 C CNN
+F 3 "~" H 5900 3150 50  0001 C CNN
+	1    5900 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5900 2900 5400 2900
+Wire Wire Line
+	5400 2900 5400 3050
+Connection ~ 5400 3050
+Wire Wire Line
+	5400 3050 5450 3050
+$Comp
+L pspice:CAP C5
+U 1 1 5E167905
+P 5900 3650
+F 0 "C5" H 6078 3696 50  0000 L CNN
+F 1 "CAP" H 6078 3605 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D4.0mm_P1.50mm" H 5900 3650 50  0001 C CNN
+F 3 "~" H 5900 3650 50  0001 C CNN
+	1    5900 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5900 3900 5400 3900
+Wire Wire Line
+	5400 3900 5400 3350
+Connection ~ 5400 3350
+Wire Wire Line
+	5400 3350 5300 3350
+Wire Wire Line
+	5250 3400 5900 3400
+Connection ~ 5250 3400
+Wire Wire Line
+	5250 3400 5250 5400
+Connection ~ 5900 3400
+$EndSCHEMATC

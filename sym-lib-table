@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "RC_Car-rescue")(type "KiCad")(uri "${KIPRJMOD}/RC_Car-rescue.kicad_sym")(options "")(descr ""))
+)
